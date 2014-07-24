@@ -192,7 +192,6 @@ a,a:focus{outline:none;}
 .header{height:73px; position:absolute; left: 0; top:0;width:100%;z-index: 999;}
 #main{position:absolute;left:0px;right:0px;bottom:0px;top:0px;}
 .single #main{overflow:hidden;}
-.product_header{top:73px;}
 .page_inner> div a:hover{text-decoration:underline;}
 .logo{width:10%;float:left;padding-left:35px;padding-top:15px;}
 .menu{width:71.5%;float:left;}
@@ -206,14 +205,15 @@ a,a:focus{outline:none;}
 .contact_box{display:none;}
 .callback_form{width:184px;height:43px;border:1px solid #000;font-family: 'proxima_nova_extra_condenseLt';font-size:25px;background:#fff;display:block;text-transform:uppercase;text-decoration:none;color:#262626;padding-top:5px;}
 .callback_form .arrow{background:url(images/arrow_dark.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
-.callback_form.active:hover .arrow{background:url(images/arrow_dark.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
+.callback_form.active:hover .arrow{background:url(images/arrow_light.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
 .active:hover .arrow{background:url(images/arrow_dark.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
 .no{background:#262626;color:#fff;height:30px;width:25px;padding:0px 10px;margin-left:10px;position:relative;top:-2px;}
-.callback_form.active:hover .no{background:#262626;color:#fff;height:30px;width:25px;padding:0px 10px;margin-left:10px;position:relative;top:-2px;}
+.callback_form.active:hover .no{height:30px;width:25px;padding:0px 10px;margin-left:10px;position:relative;top:-2px;}
 .callback_form.active .arrow{background:url(images/arrow_hover.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
-.callback_form.active .arrow{background:url(images/arrow_hover.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
+.callback_form.active:hover .arrow{background:url(images/arrow_hover.png) center no-repeat;width:20px;height:16px;display:inline-block;margin-left:10px;margin-right:5px;}
 .active .no{background:#fff;color:#262626;height:30px;width:25px;padding:0px 10px;margin-left:10px;}
 .callback_form.active{background:#262626;color:#fff;}
+.callback_form.active:hover{color: #fff;}
 body, html{height:100%;}
 body{padding:0px;margin:0px;}
 .page_inner{height:100%;}
@@ -552,6 +552,9 @@ background:#262626;padding:6px 6px;line-height:11px;
 .mean-container .mean-bar{background:none;}
 .meanmenu-reveal{left:17px !important;top:12px !important;}
 html .mean-container a.meanmenu-reveal span{color:#fff !important;background:#fff !important;}
+.mean-nav{
+    z-index: 9999;
+}
 html .mean-container .mean-nav{margin-top:61px;position:absolute;}
 html .mean-container a.meanmenu-reveal{background:#262626;padding:8px 12px;border:2px solid #fff;}
 html .mean-container .mean-nav{background:#ffffff;}
@@ -713,6 +716,7 @@ body { font-family: sans-serif; }
     .product_list h1{ display:inline-block;}
     .product_list span.last1dff{margin-right:0px;}
     .product_list .postww:nth-child(6n){margin-right:0px;position:relative;right:-1px;}
+
    /* .product_list a:first-child{background:none;position:relative;top:26px;}*/
 
 }
@@ -913,6 +917,7 @@ html .mean-container .mean-bar{width:100%;margin:0 auto;float:none;padding:0px;}
         float:left;
 
     }
+    .product_header{top:53px;}
     .product_list{float:left;}
     .product_list h1{ display:inline-block;}
     .product_list .postwwe{background:none;position:relative;top:2px;width:100%;height:90px;display:block;text-align:center;}

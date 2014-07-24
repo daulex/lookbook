@@ -6,7 +6,7 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
-include_once("D:/wamp/www/schuh/wp-content/themes/schuh/page-templates/custom_function.php");
+include_once(get_template_directory()."/page-templates/custom_function.php");
 get_header(); ?>
 <style>
 form.cmxform .gray * { color: gray; }

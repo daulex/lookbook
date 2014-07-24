@@ -36,6 +36,7 @@
 	<?php wp_head(); ?>
 </head>
 <?php 
+
 if(ot_get_option( 'image_or_background')=='image')
 {
         $color='';

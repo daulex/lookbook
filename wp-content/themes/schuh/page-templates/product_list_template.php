@@ -67,6 +67,7 @@ $args=array(
           <div class="item">
                   <div class="item_iner">
           <a href="<?php the_permalink() ?>"> <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $thumb; ?>&amp;w=200&h=200&amp;zc=1&a=tl"/>
+
             <span class="hover"><?php the_title();?></span>
           </a>
            </div>

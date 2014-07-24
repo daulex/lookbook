@@ -61,6 +61,7 @@
 <?php 
 
 //echo get_page_template();
+
 if(is_page_template('page-templates/category_template.php')) { 
 	$header_color=ot_get_option( 'content_page_header_color');  } 
 elseif(is_page_template('page-templates/product_list_template.php')) 

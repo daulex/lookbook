@@ -6,7 +6,7 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
-get_header(); 
+get_header();
 if(!$_SESSION['views'])
 	{$_SESSION['views']=array();}
 ?>
@@ -42,12 +42,12 @@ $default=get_post_meta($post->ID,'color_picker',true);
     else{
       jQuery('#my_logo_image').attr('src','<?php echo $dark;?>');
     }
-  
+
     }
   });
  });
   </script>
-  
+
   <script type="text/javascript">
 (function() {
     var sirv = document.createElement('script'); sirv.type = 'text/javascript';
@@ -65,7 +65,7 @@ if($my_query!=null){ ?>
 <section class="product_page">
   <div class="product_detail slider clearfix">
              <div class="slider_container clearfix">
-               
+
                 <div class="flexslider">
                     <div class="product_header">
                     <h1><?php the_title();?></h1>
@@ -74,10 +74,10 @@ if($my_query!=null){ ?>
                    <div id="nav_dir">
                     <?php
 					$link_360=get_post_meta($post->ID,'360_image_link',true);
-					$image= get_post_meta($post->ID,'360_image',true); 
-					
+					$image= get_post_meta($post->ID,'360_image',true);
+
 					$feat=wp_get_attachment_url( $image );
-					
+
                 $post_type=get_post_type($post->ID);
                    $my_post=get_post($post->ID);
 					$menu_order_link=$my_post->menu_order;
@@ -103,10 +103,10 @@ if($my_query!=null){ ?>
                    $prev_post=get_posts($prev_args);
                    //var_dump($next_post);
                    //var_dump($prev_post);die;
-                   
+
                    $next=get_post_permalink($next_post[0]->ID);
                     $previous=get_post_permalink($prev_post[0]->ID);
-                    
+
                    // echo $next.'<br/>';
                     //echo $previous;
 
@@ -124,7 +124,7 @@ if($my_query!=null){ ?>
                    <?php //previous_post_link('%link','<span class="left"></span>'); ?>
                   </div>
                     <ul class="slides">
-					
+
 				<?php
             foreach($my_query as $my_que)
             {
@@ -137,7 +137,7 @@ if($my_query!=null){ ?>
               }
               $header_color=$my_que['header_backend'];
              // var_dump($header_color);die;
-            ?>            
+            ?>
           <li style="<?php echo $background;?>" databg="<?php echo $my_que["color_picker"];?>">
             <div class="slide_img" id="<?php echo $header_color;?>"><img src="<?php echo $my_que['logos_items'];?>"/></div>
            </li>
@@ -150,15 +150,15 @@ data-src="<?php echo get_post_meta($post->ID,'360_image_link',true);?>"></div></
                 </ul>
               </div>
                <div class="thumb_slider">
-                      <div class="slideshow vertical" 
-                          data-cycle-fx=carousel 
-                          data-cycle-timeout=0 
-                          data-cycle-next="#next3" 
-                          data-cycle-prev="#prev3" 
-                          data-cycle-pager="#pager3" 
+                      <div class="slideshow vertical"
+                          data-cycle-fx=carousel
+                          data-cycle-timeout=0
+                          data-cycle-next="#next3"
+                          data-cycle-prev="#prev3"
+                          data-cycle-pager="#pager3"
                           data-cycle-carousel-visible=3
-                          data-cycle-carousel-vertical=true 
-                          data-allow-wrap=false 
+                          data-cycle-carousel-vertical=true
+                          data-allow-wrap=false
                           id="control_nav">
 						  <?php if($link_360!='') { ?>
 						 <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $feat; ?>&amp;w=294&h=250&amp;zc=1&a=tl"/><?php } ?>
@@ -173,14 +173,14 @@ data-src="<?php echo get_post_meta($post->ID,'360_image_link',true);?>"></div></
                             <a href="#" id="next3"> Next >> </a>
                         </div>
 					<?php } ?>
-                        
+
                     </div><!-- end of thumb_slider-->
 
                      <div class="cart deskstop">
                   <a href="#" onclick="call_to_add(<?php echo $post->ID;?>)" class="add">Add to call-in</a>
                   <a href="tel:<?php echo ot_get_option('phone_number');?>">Call the Press Office:<?php echo ot_get_option('phone_number');?></a>
               </div>
-     
+
      <div class="cart mob">
                   <a href="#" onclick="call_to_add(<?php echo $post->ID;?>)" class="add"><span></span>Add to call-in</a>
                   <a href="tel:02074455589" class="call_mob"><span></span>Phone schuh</a>

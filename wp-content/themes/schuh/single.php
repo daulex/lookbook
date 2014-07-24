@@ -208,7 +208,7 @@ $thumb_360=ot_get_option( '360_image');
               }
               $header_color=$query2['header_backend'];
 	?>
-<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $query2['logos_items']; ?>&amp;w=294&h=250&amp;zc=1&a=tl" class="img_nav" id="<?php echo $header_color;?>" databg="<?php echo $query2["color_picker"];?>"/>
+<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $query2['logos_items']; ?>&amp;w=294&h=250&amp;zc=1&a=tl" class="img_nav" id="<?php echo $header_color;?>" data-post-id="<?php echo the_ID();?>"  data-sku="<?php echo $query2["sku"];?>" databg="<?php echo $query2["color_picker"];?>"/>
 <?php } ?>
                         </div>
                         <?php if(count($my_query)>=3) {?>
@@ -241,8 +241,9 @@ $thumb_360=ot_get_option( '360_image');
               $background='background-color:'.$query2["color_picker"];
               }
               $header_color=$query2['header_backend'];
+              $SKU = $query2['sku'];
 	?>
-<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $query2['logos_items']; ?>&amp;w=294&h=250&amp;zc=1&a=tl" class="img_nav" id="<?php echo $header_color;?>" databg="<?php echo $query2["color_picker"];?>"/>
+<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $query2['logos_items']; ?>&amp;w=294&h=250&amp;zc=1&a=tl" class="img_nav" data-sku="<?php echo $query2["sku"];?>" data-post-id="<?php echo the_ID();?>" id="<?php echo $header_color;?>" databg="<?php echo $query2["color_picker"];?>"/>
 <?php } ?>
                         </div>
                         <?php if(count($my_query)>=3) {?>
@@ -253,11 +254,11 @@ $thumb_360=ot_get_option( '360_image');
 <?php } ?>
             </div><!-- end of thumb_slider-->
                     <div class="cart deskstop">
-                  <a href="#" onclick="call_to_add(<?php echo $post->ID;?>)" class="add">Add to call-in</a>
+                  <a href="#" onclick="call_to_add(<?php echo $post->ID;?>,<?php if($SKU!=-null){echo $SKU;} else { echo "0";}?>)" class="add">Add to call-in</a>
                   <a href="tel:<?php echo ot_get_option('phone_number');?>">Call the Press Office: <?php echo ot_get_option('phone_number');?></a>
               </div>
      <div class="cart mob">
-                  <a href="#" onclick="call_to_add(<?php echo $post->ID;?>)" class="add"><span></span>Add to call-in</a>
+                  <a href="#" onclick="call_to_add(<?php echo $post->ID;?>,<?php if($SKU!=-null){echo $SKU;} else { echo "0";}?>)" class="add"><span></span>Add to call-in</a>
                   <a href="tel:<?php echo ot_get_option('phone_number');?>" class="call_mob"><span></span>Phone schuh</a>
               </div>
               </div>
@@ -268,7 +269,7 @@ $thumb_360=ot_get_option( '360_image');
 get_footer(); ?>
 
 <script>
-function call_to_add(items){
+function call_to_add(items, sku){
 
     jQuery.ajax({
       type: "POST",

@@ -46,6 +46,17 @@ Schuh.lib = {
 			console.log(text);
 		}
 	},
+
+	bindCarouselClicks:function(){
+		$(document).on("click", ".cycle-carousel-wrap img", function(){
+
+			if ($(this).attr("data-sku").length && $(this).attr("data-post-id").length){
+				var sku = $(this).attr("data-sku");
+				var pid = $(this).attr("data-post-id");
+				$('.cart .add').attr("onclick", "call_to_add("+pid+","+sku+");");
+			}
+		});
+	},
 	dynamicify:function(){
 		Schuh.lib.cartButton();
 		if(Schuh.vars.winWidth > 768){
@@ -140,6 +151,7 @@ Schuh.lib = {
 		Schuh.vars.winHeight = Schuh.lib.getViewport('height');
 		Schuh.vars.winWidth = Schuh.lib.getViewport('width');
 		Schuh.lib.bindResize();
+		Schuh.lib.bindCarouselClicks();
 		Schuh.lib.bindOrientationChange();
 		Schuh.lib.dynamicify();
 	}

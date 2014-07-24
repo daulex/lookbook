@@ -42,48 +42,48 @@ $args=array(
   );
 ?>
 <?php //$colors=ot_get_option( 'color_in_frontend'); ?>
- <?php //echo get_page_template(); ?> 
+ <?php //echo get_page_template(); ?>
 
 <section class="product_content">
     <div class="isotope_block" style="background-color:<?php //echo get_post_meta($my_page,$color,true); ?>">
-       
+
 
       <div class="product_list_page">
-      
+
         <div class="item first-child">
                   <div class="item_iner">
         <h1><?php the_title();?></h1>
         </div>
               </div>
-      <div class="loading_block" >   
-  
+      <div class="loading_block" >
+
           <?php
           query_posts($args);
           if( have_posts() ) {
-            while (have_posts()) : the_post(); 
+            while (have_posts()) : the_post();
           $thumb = wp_get_attachment_url( get_post_thumbnail_id($post->ID));
           ?>
-          
+
           <div class="item">
                   <div class="item_iner">
-          <a href="<?php the_permalink() ?>"> <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $thumb; ?>&amp;w=447&h=447&amp;zc=1&a=tl"/>
+          <a href="<?php the_permalink() ?>"> <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo urldecode($thumb); ?>&amp;w=447&h=447&amp;zc=1&a=tl"/>
             <span class="hover"><?php the_title();?></span>
           </a>
            </div>
                 </div>
-       
+
         <?php $dummy_one++;?>
               <?php
             endwhile; }?>
           </div>
-          
-    
+
+
     <div style="display:none">
-            <?php  twentyfourteen_paging_nav();?> 
+            <?php  twentyfourteen_paging_nav();?>
           </div>
           <?php wp_reset_query();  ?>
         </div>
-    </div>            
+    </div>
 </section>
 <?php
 get_footer();?>

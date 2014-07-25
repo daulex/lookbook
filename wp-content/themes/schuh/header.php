@@ -23,8 +23,8 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	
-	
+
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -53,29 +53,29 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	
+
 
 	<?php wp_head(); ?>
 </head>
 
-<?php 
+<?php
 
 //echo get_page_template();
 
-if(is_page_template('page-templates/category_template.php')) { 
-	$header_color=ot_get_option( 'content_page_header_color');  } 
-elseif(is_page_template('page-templates/product_list_template.php')) 
+if(is_page_template('page-templates/category_template.php')) {
+	$header_color=ot_get_option( 'content_page_header_color');  }
+elseif(is_page_template('page-templates/product_list_template.php'))
 	{$header_color=ot_get_option( 'listing_page_color'); }
 elseif(is_single()){
 $header_color=get_post_meta($post->ID,'color_picker',true);
-//$header_color=ot_get_option( 'detail_page_color'); 
+//$header_color=ot_get_option( 'detail_page_color');
 }
 else{
-$header_color=ot_get_option( 'detail_page_color'); 
+$header_color=ot_get_option( 'detail_page_color');
 }
 //echo $header_color;
 //echo get_page_template();
-//$color=ot_get_option( 'color_in_frontend'); 
+//$color=ot_get_option( 'color_in_frontend');
 if(is_page_template( 'page-templates/product_list_template.php' ))
 {
 	$my_page=get_the_ID();
@@ -116,8 +116,8 @@ $color=$post_types.'_color';
 
 				<div class="callback">
 	                <a href="" class="callback_form">
-	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['views'])) echo count($_SESSION['views']); else echo '0';?></span>
-	                </a>         
+	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['sku'])) echo count($_SESSION['sku']); else echo '0';?></span>
+	                </a>
 	            </div>
 			</header><!-- #masthead -->
 			<div class="message" style="display:none">
@@ -134,41 +134,44 @@ jQuery().ready(function() {
 			<div class="callback_box">
                 <form action="<?php echo home_url();?>/form-handler" class="cmxform" method="POST" id="no_id">
 					<div class="fieldset_one">
-						<?php 
-						if($_SESSION['views']){ ?>
+						<?php
+						if(count($_SESSION['sku'])>0){ ?>
 						<div class="collection">
 							   <div class="callback_inner">
-						<?php foreach($_SESSION['views'] as $my_var)
-						{?>  
-						<div class="list_<?php echo $my_var;?>">
+						<?php foreach($_SESSION['sku'] as $sku)
+
+
+						{?>
+						<div class="list_<?php echo $sku->my_var;?>">
 						<div class="item_box">
 						 <div class="item_pic">
-						 	<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo wp_get_attachment_url( get_post_thumbnail_id($my_var) )?>&amp;w=200&h=200&amp;zc=1&a=tl"/>
+						 <?php $image_path = wp_upload_dir(); ?>
+							 <img src="<?php echo $image_path['url'].'/'. $sku->sku?>.jpg"/>
 						</div>
-						
+
 						<div class="item_content">
-							
-						<h2><?php echo get_the_title($my_var);?></h2>
-					<?php echo '<h3>$'.get_post_meta($my_var,'price_in_dollar',true).'/'.'£'.get_post_meta($my_var,'price_in_pound',true).'</h3>';
+
+						<h2><?php echo get_the_title($sku->my_var);?></h2>
+					<?php echo '<h3>£'.get_post_meta($sku->my_var,'price_in_pound',true).'/ $'.get_post_meta($sku->my_var,'price_in_dollar',true).'</h3>';
 						?>
 						<div class="radio_button border">
-						<input type="hidden" name="the_id" value="<?php echo $my_var;?>">
+						<input type="hidden" name="the_id" value="<?php echo $sku->my_var;?>">
 						<label>Image</label>
-						<input type="radio" name="myimage_<?php echo $my_var;?>" value="image" class="images">
+						<input type="radio" name="myimage_<?php echo $sku->my_var;?>" value="image" class="images">
 						<label>Sample</label>
-						<input type="radio" name="myimage_<?php echo $my_var;?>" value="sample" class="newsletter">
+						<input type="radio" name="myimage_<?php echo $sku->my_var;?>" value="sample" class="newsletter">
 						</div>
 						 <div class="radio_button">
-						 <fieldset id="newsletter_topics_<?php echo $my_var;?>">
+						 <fieldset id="newsletter_topics_<?php echo $sku->my_var;?>">
 						 <label>Pair</label>
-						        <input type="radio" class="topic_marketflash" value="pair" name="pair_<?php echo $my_var;?>" />
+						        <input type="radio" class="topic_marketflash" value="pair" name="pair_<?php echo $sku->my_var;?>" />
 						<label>Single</label>
-						        <input type="radio" class="topic_fuzz" value="single" name="pair_<?php echo $my_var;?>" />
+						        <input type="radio" class="topic_fuzz" value="single" name="pair_<?php echo $sku->my_var;?>" />
 						</fieldset>
 						 </div>
-						<a href='#' onclick = "delete_this(<?php echo $my_var;?>)" class="click_link">X</a>
+						<a href='#' onclick = "delete_this(<?php echo $sku->sku;?>)" class="click_link">X</a>
 
-						
+
 						</div>
 					</div></div>
 						<?php
@@ -187,13 +190,13 @@ jQuery().ready(function() {
                                         <input type="text" placeholder="Publication Name" name="publication" onfocus="hidethis(this)">
                                         <input type="text" placeholder="Phone number" name="phone" onfocus="hidethis(this)">
                                         <input type="text" placeholder="Your mail" name="email" onfocus="hidethis(this)">
-                                        
+
                                     </div>
                                     <div class="contact_right">
                                         <p><span>Issue date</span><input type="text" id="datepicker" name="issue_date" onfocus="hidethis(this)"></p>
                                         <p><span>When is the product required?</span><input type="text" id="datepicker1" name="required_date" onfocus="hidethis(this)"></p>
                                         <textarea name="my_comment" id="" ></textarea>
-                                        
+
                                     </div>
                                 </div>
                                <div class="border"><span class="form_border "></span></div>
@@ -203,11 +206,11 @@ jQuery().ready(function() {
                                     <a href="tel:<?php echo ot_get_option('phone_number');?>" class="call">Or Call the Press Office: <?php echo ot_get_option('phone_number');?></a>
                                 </div>
                         </div>
-                        
+
                     </div><a href="#" class="closebox"></a>
                   <!--    <input type="submit" name="submit" value="submit"> -->
-					<?php 
-//var_dump($_SESSION['views']);
+					<?php
+//var_dump($_SESSION['sku']);
 					}
 
 					else {
@@ -215,7 +218,7 @@ jQuery().ready(function() {
 					}
 
 					?></div>
-					
+
 					</form>
 		        </div>
 		        <div class="contact_box">
@@ -254,7 +257,7 @@ jQuery().ready(function() {
 		<div id="main" class="site-main">
 			<script>
 				function delete_this(image_id)
-				{ 
+				{
 					jQuery.ajax({
 					           type: "POST",
 					           url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
@@ -266,13 +269,13 @@ jQuery().ready(function() {
 					            console.log(obj[0]);
 					            jQuery('.list_'+image_id).remove();
 					            if(obj[1]==0){
-								jQuery(".fieldset_one").fadeIn().html('<div class="empty">nothing man</div>');
+								jQuery(".fieldset_one").fadeIn().html('<div class="empty">There are no items in your list</div>');
 					            }
 					           	   //jQuery(".fieldset1").fadeIn().html(obj[0]);
 					               jQuery(".no").html(obj[1]);
 
 					           },
-					}); 
+					});
 				}
 </script>
 <script>
@@ -343,7 +346,7 @@ if((jQuery("input[name=phone]").val()=='')||(jQuery("input[name=phone]").val()==
 	{jQuery("input[name=phone]").addClass('active');checkstatus=1;}
 
 if((jQuery("input[name=email]").val()=='')||(jQuery("input[name=email]").val()=="Your mail")||(!emailReg.test( jQuery("input[name=email]").val())))
-	{ 
+	{
 		jQuery("input[name=email]").addClass('active');checkstatus=1;}
 
 if(jQuery("input[name=issue_date]").val()=='')

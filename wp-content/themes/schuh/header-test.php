@@ -24,8 +24,8 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	
-	
+
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -54,28 +54,28 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	
+
 
 	<?php wp_head(); ?>
 </head>
 
-<?php 
+<?php
 
 //echo get_page_template();
-if(is_page_template('page-templates/category_template.php')) { 
-	$header_color=ot_get_option( 'content_page_header_color');  } 
-elseif(is_page_template('page-templates/product_list_template.php')) 
+if(is_page_template('page-templates/category_template.php')) {
+	$header_color=ot_get_option( 'content_page_header_color');  }
+elseif(is_page_template('page-templates/product_list_template.php'))
 	{$header_color=ot_get_option( 'listing_page_color'); }
 elseif(is_single()){
 $header_color=get_post_meta($post->ID,'color_picker',true);
-//$header_color=ot_get_option( 'detail_page_color'); 
+//$header_color=ot_get_option( 'detail_page_color');
 }
 else{
-$header_color=ot_get_option( 'detail_page_color'); 
+$header_color=ot_get_option( 'detail_page_color');
 }
 //echo $header_color;
 //echo get_page_template();
-//$color=ot_get_option( 'color_in_frontend'); 
+//$color=ot_get_option( 'color_in_frontend');
 if(is_page_template( 'page-templates/product_list_template.php' ))
 {
 	$my_page=get_the_ID();
@@ -118,7 +118,7 @@ $color=$post_types.'_color';
 				<div class="callback">
 	                <a href="" class="callback_form">
 	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION)) echo count($_SESSION); else echo '0';?></span>
-	                </a>         
+	                </a>
 	            </div>
 			</header><!-- #masthead -->
 			<div class="message" style="display:none">
@@ -135,21 +135,21 @@ jQuery().ready(function() {
 			<div class="callback_box">
                 <form action="<?php echo home_url();?>/form-handler" class="cmxform" method="POST" id="no_id">
 					<div class="fieldset_one">
-						<?php 
+						<?php
 						if($_SESSION){ ?>
 						<div class="collection">
 							   <div class="callback_inner">
 						<?php $i=0; foreach($_SESSION as $my_session)
 						{$my_var=$my_session['id']; $i++;
-						?>  
+						?>
 						<div class="list_<?php echo $my_var;?>">
 						<div class="item_box">
 						 <div class="item_pic">
 						 	<img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $my_session['src'];?>&amp;w=200&h=200&amp;zc=1&a=tl"/>
 						</div>
-						
+
 						<div class="item_content">
-							
+
 						<h2><?php echo get_the_title($my_var);?></h2>
 					<?php echo '<h3>$'.get_post_meta($my_var,'price_in_dollar',true).'/'.'£'.get_post_meta($my_var,'price_in_pound',true).$my_session['id'].'</h3>';
 						?>
@@ -170,7 +170,7 @@ jQuery().ready(function() {
 						 </div>
 						<a href='#' onclick = "delete_this(<?php echo $i;?>)" class="click_link">X</a>
 
-						
+
 						</div>
 					</div></div>
 						<?php
@@ -189,13 +189,13 @@ jQuery().ready(function() {
                                         <input type="text" placeholder="Publication Name" name="publication" onfocus="hidethis(this)">
                                         <input type="text" placeholder="Phone number" name="phone" onfocus="hidethis(this)">
                                         <input type="text" placeholder="Your mail" name="email" onfocus="hidethis(this)">
-                                        
+
                                     </div>
                                     <div class="contact_right">
                                         <p><span>Issue date</span><input type="text" id="datepicker" name="issue_date" onfocus="hidethis(this)"></p>
                                         <p><span>When is the product required?</span><input type="text" id="datepicker1" name="required_date" onfocus="hidethis(this)"></p>
                                         <textarea name="my_comment" id="" ></textarea>
-                                        
+
                                     </div>
                                 </div>
                                <div class="border"><span class="form_border "></span></div>
@@ -205,10 +205,10 @@ jQuery().ready(function() {
                                     <a href="tel:<?php echo ot_get_option('phone_number');?>" class="call">Or Call the Press Office: <?php echo ot_get_option('phone_number');?></a>
                                 </div>
                         </div>
-                        
+
                     </div><a href="#" class="closebox"></a>
                   <!--    <input type="submit" name="submit" value="submit"> -->
-					<?php 
+					<?php
 //var_dump($_SESSION['views']);
 					}
 
@@ -217,7 +217,7 @@ jQuery().ready(function() {
 					}
 
 					?></div>
-					
+
 					</form>
 		        </div>
 		        <div class="contact_box">
@@ -256,7 +256,7 @@ jQuery().ready(function() {
 		<div id="main" class="site-main">
 			<script>
 				function delete_this(image_id)
-				{ 
+				{
 					jQuery.ajax({
 					           type: "POST",
 					           url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
@@ -274,7 +274,7 @@ jQuery().ready(function() {
 					               jQuery(".no").html(obj[1]);
 
 					           },
-					}); 
+					});
 				}
 </script>
 <script>
@@ -345,7 +345,7 @@ if((jQuery("input[name=phone]").val()=='')||(jQuery("input[name=phone]").val()==
 	{jQuery("input[name=phone]").addClass('active');checkstatus=1;}
 
 if((jQuery("input[name=email]").val()=='')||(jQuery("input[name=email]").val()=="Your mail")||(!emailReg.test( jQuery("input[name=email]").val())))
-	{ 
+	{
 		jQuery("input[name=email]").addClass('active');checkstatus=1;}
 
 if(jQuery("input[name=issue_date]").val()=='')

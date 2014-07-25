@@ -68,7 +68,7 @@ $personal_info.='</table>';
 		//add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 
 
-		wp_mail('rukesh.prajapati@webdevwork.com', 'This is from schuh',$personal_info,$headers);
+		wp_mail('andy@bythescruff.com', 'This is from schuh',$personal_info,$headers);
 		wp_mail($email, 'This is from schuh',$personal_info,$headers);
 		//remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
 

@@ -4,9 +4,9 @@ session_start();
 $array1=array();
 $to_delete=$_POST['delete_session'];
 
-$_SESSION['views']=array_diff($_SESSION['views'],array($to_delete));
+$_SESSION['sku']=array_diff($_SESSION['sku']->sku,array($to_delete));
 $querr='';
-/*if($_SESSION['views']){
+/*if($_SESSION['sku']){
 	foreach($_SESSION['views'] as $my_var)
 	{	$title=get_the_title($my_var);
 		$price_in_dollar=get_post_meta($my_var,'price_in_dollar',true);
@@ -17,6 +17,6 @@ else{
 $querr='There is no item in your list';
 }*/
 $array1[0]=$querr;
-$array1[1]=count($_SESSION['views']);
+$array1[1]=count($_SESSION['sku']);
 echo json_encode($array1);
 ?>

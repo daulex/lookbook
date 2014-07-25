@@ -88,7 +88,7 @@ $header_color=ot_get_option( 'detail_page_color');
 
 				<div class="callback">
 	                <a href="" class="callback_form">
-	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['views'])) echo count($_SESSION['views']); else echo '0';?></span>
+	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['sku'])) echo count($_SESSION['sku']); else echo '0';?></span>
 	                </a>         
 	            </div>
 			</header><!-- #masthead -->
@@ -107,10 +107,10 @@ $().ready(function() {
                 <form action="<?php echo home_url();?>/form-handler" class="cmxform" method="POST" id="no_id">
 					<div class="fieldset_one">
 						<?php 
-						if($_SESSION['views']){ ?>
+						if($_SESSION['sku']){ ?>
 						<div class="collection">
 							   <div class="callback_inner">
-						<?php foreach($_SESSION['views'] as $my_var)
+						<?php foreach($_SESSION['sku'] as $my_var)
 						{?>  
 						<div class="list_<?php echo $my_var;?>">
 						<div class="item_box">
@@ -119,8 +119,10 @@ $().ready(function() {
 						<div class="item_content">
 							
 						<h2><?php echo get_the_title($my_var);?></h2>
-					<?php echo '<h3>$'.get_post_meta($my_var,'price_in_dollar',true).'/'.'£'.get_post_meta($my_var,'price_in_pound',true).'</h3>';
+					<?php echo '<h3>£'.get_post_meta($my_var,'price_in_pound',true).'/ $'.get_post_meta($my_var,'price_in_dollar',true).'</h3>';
 						?>
+
+
 						<div class="radio_button border">
 							<input type="hidden" name="the_id" value="<?php echo $my_var;?>">
 						<label>Image</label>
@@ -176,7 +178,7 @@ $().ready(function() {
                     </div><a href="#" class="closebox"></a>
                   <!--    <input type="submit" name="submit" value="submit"> -->
 					<?php 
-//var_dump($_SESSION['views']);
+//var_dump($_SESSION['sku']);
 					}
 
 					else {

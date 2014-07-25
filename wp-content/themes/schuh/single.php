@@ -195,7 +195,7 @@ $thumb_360=ot_get_option( '360_image');
                           data-cycle-carousel-vertical=true
                           data-allow-wrap=false
                           id="control_nav">
-						  <?php if($link_360!='') { ?> <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo str_replace($thumb_360); ?>&amp;w=294&h=250&amp;zc=1&a=tl"id="toggle-360" class="active" data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php } ?>
+						  <?php if($link_360!='') { ?> <img src="http://schuhlookbook.co.uk/wp-content/uploads/2014/07/360.png"id="toggle-360" class="active" data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php } ?>
 <?php foreach($my_query as $query2) {
 	$header_color = "";
 	$background = "";
@@ -229,7 +229,7 @@ $thumb_360=ot_get_option( '360_image');
                           data-allow-wrap=false
                           data-cycle-log=false
                           id="control_nav">
-              <?php if($link_360!='') { ?> <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo $thumb_360; ?>&amp;w=294&h=250&amp;zc=1&a=tl"id="toggle-360_2" class="active"  data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php } ?>
+              <?php if($link_360!='') { ?> <img src="http://schuhlookbook.co.uk/wp-content/uploads/2014/07/360.png"id="toggle-360_2" class="active"  data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php } ?>
 <?php foreach($my_query as $query2) {
 	$header_color = "";
 	$background = "";
@@ -274,23 +274,33 @@ function call_to_add(items, sku){
     jQuery.ajax({
       type: "POST",
       url:"<?php echo get_template_directory_uri();?>/page-templates/add_item_ajax.php",
-       data: {'add_session':items},
+       data: {'add_session':items, 'sku':sku},
       success:function(result){
          var obj = jQuery.parseJSON(result);
+          console.log(obj);
          //alert(obj[2]);
          if(obj[0]!=null){
-         if(obj[1]==1){
-          jQuery(".fieldset_one").html(obj[0]);
-         }else{
-          jQuery(obj[0]).appendTo(".callback_inner");}
-          jQuery(".no").html(obj[1]); }
+          if(obj[1]==1){
+            jQuery('.fieldset_one').append(obj[0]);
+          }
+          else {
+            jQuery('.callback_inner').append(obj[0]);
+          }
+
+          jQuery(".no").html(obj[1]);
            //jQuery(".message").show();
-           jQuery(".message").html(obj[2]);
-           //jQuery(".message").slideDown();
-           setTimeout(function(){jQuery(".message").slideDown(),2500});
-          setTimeout(function(){jQuery(".message").slideUp(),2500});
+           jQuery(".message").html(obj[2]).show().slideDown();
+           jQuery(".empty").remove();
+
+           window.setTimeout(function(){
+            //jQuery(".message").slideDown();
+            }, 0);
+          window.setTimeout(function(){
+            jQuery(".message").slideUp();
+            }, 2500);
             jQuery(".message").hide();
-    },
+        }
+    }
   });
 }
 

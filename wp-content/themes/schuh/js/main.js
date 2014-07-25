@@ -13,6 +13,7 @@ Schuh.vars = {
 Schuh.lib = {
 
 
+
 	getViewport: function(type) {
 		var viewPortWidth;
 		var viewPortHeight;

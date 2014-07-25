@@ -61,7 +61,7 @@ $my_query='INSERT INTO sc78_userinfo (first_name, last_name, publication_name, p
 			//$email_template.='<table><tr><td>'.$my_var.'</td></tr></table>';
 			}
 $personal_info.='</table>';
-		 $headers = 'From: My Name <dark23shadow@gmail.com>' . "\r\n";
+		 $headers = 'From: My Name <andy@bythescruff.com>' . "\r\n";
 		 $headers .= "MIME-Version: 1.0\r\n";
 		 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 

@@ -9,8 +9,8 @@
  */
 
 get_header();
-if(!$_SESSION['views'])
-	{$_SESSION['views']=array();}
+if(!$_SESSION['sku'])
+	{$_SESSION['sku']=array();}
 ?>
 
 
@@ -289,7 +289,7 @@ function call_to_add(items, sku){
 
           jQuery(".no").html(obj[1]);
            //jQuery(".message").show();
-           jQuery(".message").html(obj[2]).show().slideDown();
+           jQuery(".message").html(obj[2]).slideDown();
            jQuery(".empty").remove();
 
            window.setTimeout(function(){

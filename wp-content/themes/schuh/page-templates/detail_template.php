@@ -71,12 +71,12 @@ data-src="http://schuh.sirv.com/lookbook/1125514150/1125514150.spin"></div>
 
 <form action="" class="cmxform" method="POST" id="no_id">
 <div class="fieldset1">
-<?php 
+<?php
 $my_counter=1;
-if($_SESSION['views']){
-foreach($_SESSION['views'] as $my_var)
+if($_SESSION['sku']){
+foreach($_SESSION['sku'] as $my_var)
 {?>
-	
+
 <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($my_var) )?>" width="100px" height="100px"/>
 <?php echo get_the_title($my_var);
 
@@ -104,7 +104,7 @@ echo '£'.get_post_meta($my_var,'price_in_pound',true);
 <input type="text" name="required_date" >
 <input type="textarea" name="comment" >
 <input type="submit" value="Submit">
-<?php 
+<?php
 $my_counter++;
 }
 else {
@@ -113,12 +113,12 @@ else {
 ?></div>
 </form>
 <?php
-var_dump($_SESSION['views']);
+var_dump($_SESSION['sku']);
 
 get_footer(); ?>
 <script>
 function delete_this(image_id)
-{ 
+{
 jQuery.ajax({
            type: "POST",
            url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
@@ -131,6 +131,6 @@ jQuery.ajax({
            	   jQuery(".fieldset1").fadeIn().html(obj[0]);
                jQuery(".no").html(obj[1]);
            },
-      }); 
+      });
 }
 </script>

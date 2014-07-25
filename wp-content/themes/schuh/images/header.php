@@ -24,8 +24,8 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	
-	
+
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -43,17 +43,18 @@
 	<![endif]-->
 	<?php wp_head(); ?>
 </head>
-<?php 
-if(is_page_template('page-templates/category_template.php')) { 
-	$header_color=ot_get_option( 'content_page_header_color');  } 
-elseif(is_page_template('page-templates/product_list_template.php')) 
+<?php
+
+if(is_page_template('page-templates/category_template.php')) {
+	$header_color=ot_get_option( 'content_page_header_color');  }
+elseif(is_page_template('page-templates/product_list_template.php'))
 	{$header_color=ot_get_option( 'listing_page_color'); }
 elseif(is_single()){
 $header_color=get_post_meta($post->ID,'color_picker',true);
-//$header_color=ot_get_option( 'detail_page_color'); 
+//$header_color=ot_get_option( 'detail_page_color');
 }
 else{
-$header_color=ot_get_option( 'detail_page_color'); 
+$header_color=ot_get_option( 'detail_page_color');
 }
 ?>
 <?php $color=ot_get_option( 'color_in_frontend'); ?>
@@ -71,18 +72,18 @@ $header_color=ot_get_option( 'detail_page_color');
 				</div>
 				<div class="callback">
 	                <a href="" class="callback_form">
-	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['views'])) echo count($_SESSION['views']); else echo '0';?></span>
-	                </a>         
+	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['sku'])) echo count($_SESSION['sku']); else echo '0';?></span>
+	                </a>
 	            </div>
 			</header><!-- #masthead -->
 
 			<div class="callback_box">
                 <form action="" class="cmxform" method="POST" id="no_id">
 					<div class="fieldset1">
-						<?php 
+						<?php
 						$my_counter=1;
-						if($_SESSION['views']){
-						foreach($_SESSION['views'] as $my_var)
+						if($_SESSION['sku']){
+						foreach($_SESSION['sku'] as $my_var)
 						{?>
 							<div class="get_child">
 						<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($my_var) )?>" width="100px" height="100px"/>
@@ -118,8 +119,8 @@ $header_color=ot_get_option( 'detail_page_color');
 					<input type="textarea" name="comment" >
 
 					<input type="submit" value="Submit">
-					<?php 
-//var_dump($_SESSION['views']);
+					<?php
+//var_dump($_SESSION['sku']);
 					}
 
 					else {
@@ -133,7 +134,7 @@ $header_color=ot_get_option( 'detail_page_color');
 
 			<script>
 				function delete_this(image_id)
-				{ 
+				{
 					jQuery.ajax({
 					           type: "POST",
 					           url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
@@ -146,10 +147,10 @@ $header_color=ot_get_option( 'detail_page_color');
 					           	   jQuery(".fieldset1").fadeIn().html(obj[0]);
 					               jQuery(".no").html(obj[1]);
 					           },
-					           complete: function(){ 
-  								 document.location.reload(); 
+					           complete: function(){
+  								 document.location.reload();
 								 }
-					}); 
+					});
 				}
 
 			jQuery('.images').click(function(){

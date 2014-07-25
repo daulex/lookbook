@@ -142,7 +142,7 @@ jQuery().ready(function() {
 
 
 						{?>
-						<div class="list_<?php echo $sku->my_var;?>">
+						<div class="list_<?php echo $sku->sku;?>">
 						<div class="item_box">
 						 <div class="item_pic">
 						 <?php $image_path = wp_upload_dir(); ?>
@@ -155,18 +155,18 @@ jQuery().ready(function() {
 					<?php echo '<h3>£'.get_post_meta($sku->my_var,'price_in_pound',true).'/ $'.get_post_meta($sku->my_var,'price_in_dollar',true).'</h3>';
 						?>
 						<div class="radio_button border">
-						<input type="hidden" name="the_id" value="<?php echo $sku->my_var;?>">
+						<input type="hidden" name="the_id" value="<?php echo $sku->sku;?>">
 						<label>Image</label>
-						<input type="radio" name="myimage_<?php echo $sku->my_var;?>" value="image" class="images">
+						<input type="radio" name="myimage_<?php echo $sku->sku;?>" value="image" class="images">
 						<label>Sample</label>
-						<input type="radio" name="myimage_<?php echo $sku->my_var;?>" value="sample" class="newsletter">
+						<input type="radio" name="myimage_<?php echo $sku->sku;?>" value="sample" class="newsletter">
 						</div>
 						 <div class="radio_button">
-						 <fieldset id="newsletter_topics_<?php echo $sku->my_var;?>">
+						 <fieldset id="newsletter_topics_<?php echo $sku->sku;?>">
 						 <label>Pair</label>
-						        <input type="radio" class="topic_marketflash" value="pair" name="pair_<?php echo $sku->my_var;?>" />
+						        <input type="radio" class="topic_marketflash" value="pair" name="pair_<?php echo $sku->sku;?>" />
 						<label>Single</label>
-						        <input type="radio" class="topic_fuzz" value="single" name="pair_<?php echo $sku->my_var;?>" />
+						        <input type="radio" class="topic_fuzz" value="single" name="pair_<?php echo $sku->sku;?>" />
 						</fieldset>
 						 </div>
 						<a href='#' onclick = "delete_this(<?php echo $sku->sku;?>)" class="click_link">X</a>
@@ -266,10 +266,10 @@ jQuery().ready(function() {
 								},
 					           success: function(result){
 					            var obj = jQuery.parseJSON(result);
-					            console.log(obj[0]);
+
 					            jQuery('.list_'+image_id).remove();
 					            if(obj[1]==0){
-								jQuery(".fieldset_one").fadeIn().html('<div class="empty">There are no items in your list</div>');
+									jQuery(".fieldset_one").fadeIn().html('<div class="empty">There are no items in your list</div>');
 					            }
 					           	   //jQuery(".fieldset1").fadeIn().html(obj[0]);
 					               jQuery(".no").html(obj[1]);

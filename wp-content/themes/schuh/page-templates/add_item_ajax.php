@@ -83,5 +83,5 @@ if(!$_SESSION['sku'])
 		$array1[1]=count($_SESSION['sku']);
 		$array1[2]="THE ITEM ALREADY EXIST IN YOUR LIST";
 	}
-	echo json_encode($array1);
+	echo json_encode($_SESSION['sku']);
 ?>

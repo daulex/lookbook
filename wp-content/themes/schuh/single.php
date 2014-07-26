@@ -107,7 +107,7 @@ sirv.async = true;
 <section class="product_page">
   <div class="product_detail slider clearfix">
              <div class="slider_container clearfix">
-              <?php if(get_post_meta($post->ID,'360_image_link',true)): ?>
+              <?php if(strlen(get_post_meta($post->ID,'360_image_link',true)) > 5): ?>
               <div id="box-360" style="background-color:<?php echo get_post_meta($post->ID, '360_background_color',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>">
                 <div id="hide-360"></div>
                 <div class="Sirv" id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" data-effect="spin" data-src="<?php echo get_post_meta($post->ID,'360_image_link',true);?>"></div>
@@ -197,7 +197,7 @@ $thumb_360=ot_get_option( '360_image');
                           data-cycle-carousel-vertical=true
                           data-allow-wrap=false
                           id="control_nav">
-						  <?php if(get_post_meta($post->ID,'360_image_link',true)): ?> <img src="http://schuhlookbook.co.uk/wp-content/uploads/2014/07/360.png"id="toggle-360" class="active" data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php endif; ?>
+						  <?php if(strlen(get_post_meta($post->ID,'360_image_link',true)) > 5): ?> <img src="http://schuhlookbook.co.uk/wp-content/uploads/2014/07/360.png"id="toggle-360" class="active" data-id="<?php echo get_post_meta($post->ID,'color_picker',true);?>" databg="<?php echo get_post_meta($post->ID, '360_background_color',true);?>"/><?php endif; ?>
 <?php foreach($my_query as $query2) {
 	$header_color = "";
 	$background = "";

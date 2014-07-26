@@ -280,13 +280,11 @@ function call_to_add(items, sku){
       success:function(result){
 	
          var obj = jQuery.parseJSON(result);
-          
-				 if (result.is_already == true) {
-					alert("You have already added this item")
-					return true;
-				 }
-										
-         //alert(obj[2]);
+         
+				 console.log(obj);
+				
+					$('#total_items_in_form').html(obj[1]);
+					
          if(obj[0]!=null){
           if(obj[1]==1){
             jQuery('.fieldset_one').append(obj[0]);
@@ -307,6 +305,8 @@ function call_to_add(items, sku){
             jQuery(".message").slideUp();
             }, 2500);
             jQuery(".message").hide();
+				} else {
+					alert(obj[2]);
         }
     }
   });

@@ -116,7 +116,7 @@ $color=$post_types.'_color';
 
 				<div class="callback">
 	                <a href="" class="callback_form">
-	                    <span class="arrow"></span>Call-in Form<span class="no"><?php if(isset($_SESSION['sku'])) echo count($_SESSION['sku']); else echo '0';?></span>
+	                    <span class="arrow"></span>Call-in Form<span class="no" id="total_items_in_form"><?php if(isset($_SESSION['sku'])) echo count($_SESSION['sku']); else echo '0';?></span>
 	                </a>
 	            </div>
 			</header><!-- #masthead -->
@@ -270,6 +270,9 @@ jQuery().ready(function() {
 						
 						},
 						success: function(result){
+							
+						  var obj = jQuery.parseJSON(result);
+								$('#total_items_in_form').html(obj);
 					  	$('.list_' + image_id).fadeOut(200, function() { 
 									$(this).remove();
 									

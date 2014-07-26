@@ -16,13 +16,13 @@ if(isset($to_delete)&&$to_delete!='') {
 	//echo "DELETE: " . $to_delete  . "<br/>";
 	//echo $_SESSION['sku'];
 	foreach($_SESSION['sku'] as $key => $my_var) {
-		echo "MYVAR ".$my_var->sku." <br/>";
 		//$vars = get_object_vars($my_var);
 		if ($my_var->sku == $to_delete) {
 			unset($_SESSION['sku'][$key]);
 		}
 	}
-	json_encode(true);
+	
+	echo json_encode(count($_SESSION['sku']));
 	
 	//$_SESSION['sku']=array_diff($_SESSION['sku'],array($to_delete));
 	//$querr='';

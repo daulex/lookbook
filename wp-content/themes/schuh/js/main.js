@@ -62,7 +62,7 @@ Schuh.lib = {
 		Schuh.lib.cartButton();
 		if(Schuh.vars.winWidth > 768){
 			//load the full slider
-				Schuh.lib.log("loading the full slider");
+				//Schuh.lib.log("loading the full slider");
 				var winWidth = jQuery(window).width();
 				var winHeight = jQuery(window).height() - 73;
 				var winHeight360 = jQuery(window).height() - 73;
@@ -96,7 +96,7 @@ Schuh.lib = {
 		var myPosition = jQuery(window).height() - 146;
 		jQuery('.cart.deskstop').css('top', myPosition);
 
-		Schuh.lib.log(myPosition);
+		//Schuh.lib.log(myPosition);
 	},
 	bindOrientationChange:function(){
 		$(window).bind('orientationchange', function(e) {
@@ -137,18 +137,18 @@ Schuh.lib = {
 		jQuery(window).smartresize(function(){
 			Schuh.vars.winHeight = Schuh.lib.getViewport('height');
 			Schuh.vars.winWidth = Schuh.lib.getViewport('width');
-			Schuh.lib.log("window height: " + Schuh.vars.winHeight);
-			Schuh.lib.log("window width: " + Schuh.vars.winWidth);
+			//Schuh.lib.log("window height: " + Schuh.vars.winHeight);
+			//Schuh.lib.log("window width: " + Schuh.vars.winWidth);
 
 			Schuh.lib.dynamicify();
 		});
 	},
 	init: function() {
 		if(Schuh.vars.debug){
-			console.log("DEBUG MODE: ON");
+			//console.log("DEBUG MODE: ON");
 		}
 
-		Schuh.lib.log("initialising lib");
+		//Schuh.lib.log("initialising lib");
 		Schuh.vars.winHeight = Schuh.lib.getViewport('height');
 		Schuh.vars.winWidth = Schuh.lib.getViewport('width');
 		Schuh.lib.bindResize();

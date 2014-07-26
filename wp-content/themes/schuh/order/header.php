@@ -226,22 +226,20 @@ $().ready(function() {
 			<script>
 				function delete_this(image_id)
 				{ 
+					if (confirm('Are you sure you want to remove this product?') == false) {
+						return false;
+					}
+					
 					jQuery.ajax({
-					           type: "POST",
-					           url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
-					           data: {'delete_session':image_id},
-							   error: function(xhr, status, error) {
-								},
-					           success: function(result){
-					            var obj = jQuery.parseJSON(result);
-					            console.log(obj[0]);
-					            jQuery('.list_'+image_id).remove();
-					            if(obj[1]==0){
-								jQuery(".fieldset_one").fadeIn().html('');
-					            }
-					           	   //jQuery(".fieldset1").fadeIn().html(obj[0]);
-					               jQuery(".no").html(obj[1]);
-					           },
+						type: "POST",
+						url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
+						data: {'delete_session':image_id},
+						error: function(xhr, status, error) {
+						
+						},
+						success: function(result){
+					  	$('.list_' + image_id).fadeOut(200, function() { $(this).remove(); });
+					  }
 					}); 
 				}
 

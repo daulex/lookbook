@@ -278,8 +278,14 @@ function call_to_add(items, sku){
       url:"<?php echo get_template_directory_uri();?>/page-templates/add_item_ajax.php",
        data: {'add_session':items, 'sku':sku},
       success:function(result){
+	
          var obj = jQuery.parseJSON(result);
-          console.log(obj);
+          
+				 if (result.is_already == true) {
+					alert("You have already added this item")
+					return true;
+				 }
+										
          //alert(obj[2]);
          if(obj[0]!=null){
           if(obj[1]==1){

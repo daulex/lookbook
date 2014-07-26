@@ -16,16 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'lookbook');
+//define('DB_NAME', 'lookbook');
 
 /** MySQL database username */
-define('DB_USER', 'wordpress');
+//define('DB_USER', 'wordpress');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'i28NXsldIAZ');
+//define('DB_PASSWORD', 'i28NXsldIAZ');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+//define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -33,7 +33,12 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-
+define('DB_NAME', 'lookbook');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', '127.0.0.1:3306');
+define('WP_HOME','http://localhost:8888/schuh');
+define('WP_SITEURL','http://localhost:8888/schuh');
 
 /* gareth local config */
 // define('DB_NAME', 'lookbook');

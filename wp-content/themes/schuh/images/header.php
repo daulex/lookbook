@@ -94,7 +94,7 @@ $header_color=ot_get_option( 'detail_page_color');
 						?>
 						<input type="radio" name="mytype_<?php echo $my_counter;?>" value="image" class="images">Image<br/>
 						<input type="radio" name="mytype_<?php echo $my_counter;?>" value="sample" class="newsletter">Sample
-						<a href='#' onclick = "delete_this(<?php echo $my_var;?>)">Delete</a>
+						<a href='javascript:void(0);' onclick="return delete_this(<?php echo $my_var;?>)">Delete</a>
 
 						<fieldset id="newsletter_topics">
 						        <input type="radio" class="topic_marketflash" value="marketflash" name="topic1_<?php echo $my_counter;?>" />
@@ -134,23 +134,22 @@ $header_color=ot_get_option( 'detail_page_color');
 
 			<script>
 				function delete_this(image_id)
-				{
+				{ 
+					if (confirm('Are you sure you want to remove this product?') == false) {
+						return false;
+					}
+					
 					jQuery.ajax({
-					           type: "POST",
-					           url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
-					           data: {'delete_session':image_id},
-							   error: function(xhr, status, error) {
-								},
-					           success: function(result){
-					            var obj = jQuery.parseJSON(result);
-					            console.log(obj[0]);
-					           	   jQuery(".fieldset1").fadeIn().html(obj[0]);
-					               jQuery(".no").html(obj[1]);
-					           },
-					           complete: function(){
-  								 document.location.reload();
-								 }
-					});
+						type: "POST",
+						url: "<?php echo get_template_directory_uri();?>/page-templates/load2.php",
+						data: {'delete_session':image_id},
+						error: function(xhr, status, error) {
+						
+						},
+						success: function(result){
+					  	$('.list_' + image_id).fadeOut(200, function() { $(this).remove(); });
+					  }
+					}); 
 				}
 
 			jQuery('.images').click(function(){

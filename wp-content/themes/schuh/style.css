@@ -485,7 +485,7 @@ html .dark #nav_dir .left:hover{background:url(images/light_dark.png) 0 0 no-rep
 .click_link{position:absolute;top:0px;right:0px;font-style:15px;font-family: 'proxima_nova_extra_condensSBd';color:#fff;text-decoration:none;
 background:#262626;padding:6px 6px;line-height:11px;
 }
-.item_box h2{padding:0px;margin:0px;font-weight:normal;font-style:21px;line-height:17px;height:17px;overflow:hidden; font-family: 'proxima_nova_extra_condensSBd';text-transform:uppercase;margin-top:15px;letter-spacing:-1px;}
+.item_box h2{padding:0px;margin:0px;font-weight:normal;line-height:21px;height:21px;overflow:hidden; font-family: 'proxima_nova_extra_condensSBd';text-transform:uppercase;margin-top:15px;letter-spacing:-1px;}
 .item_box h3{padding:0px;margin:0px;font-weight:normal;font-size:16px;line-height:11px;  font-family: 'proxima_nova_extra_condenseLt';text-transform:uppercase;margin-top:12px;margin-bottom:10px;}
 .radio_button.border{border-bottom:1px solid #d7d7d7;padding-bottom:5px;margin-bottom:5px;margin-top:5px;}
 .radio_button{font-style:16px;color:#262626;line-height:11px; font-family: 'proxima_nova_extra_condensSBd';}
@@ -493,7 +493,7 @@ background:#262626;padding:6px 6px;line-height:11px;
 /* div.radio{margin-right:10%;} */
 
 .radio .images,.radio .topic_marketflash{margin-right:15%;}
-.item_content{width:54%;margin-right:3%;float:left;}
+.item_content{width:95%;margin-right:3%;float:left;}
 .contact{background:#edebeb;text-align:center;padding:40px;float:left;width:100%;}
 /*#box-360{bottom:40px;}
 */

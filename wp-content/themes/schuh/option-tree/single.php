@@ -276,6 +276,9 @@ function call_to_add(items, sku){
       url:"<?php echo get_template_directory_uri();?>/page-templates/add_item_ajax.php",
        data: {'add_session':items},
       success:function(result){
+	
+						location.reload();
+						return true;
          var obj = jQuery.parseJSON(result);
          //alert(obj[2]);
          if(obj[0]!=null){

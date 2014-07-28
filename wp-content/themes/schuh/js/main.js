@@ -50,12 +50,14 @@ Schuh.lib = {
 
 	bindCarouselClicks:function(){
 		$(document).on("click", ".cycle-carousel-wrap img", function(){
-
-			if ($(this).attr("data-sku").length && $(this).attr("data-post-id").length){
-				var sku = $(this).attr("data-sku");
-				var pid = $(this).attr("data-post-id");
-				$('.cart .add').attr("onclick", "call_to_add("+pid+","+sku+");");
+			if(typeof $(this).attr("data-sku") !=="undefined" && typeof  $(this).attr("data-post-id") !== "undefined"){
+				if ($(this).attr("data-sku").length && $(this).attr("data-post-id").length){
+					var sku = $(this).attr("data-sku");
+					var pid = $(this).attr("data-post-id");
+					$('.cart .add').attr("onclick", "call_to_add("+pid+","+sku+");");
+				}
 			}
+			return true;
 		});
 	},
 	dynamicify:function(){

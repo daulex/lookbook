@@ -179,7 +179,7 @@ jQuery('.callback .callback_form').on('click', function(e) {
 	}
 });
 
-jQuery('#menu-item-357 a').on('click', function() {
+jQuery(document).on('click', '#menu-item-357 a', function() {
 	if (jQuery('#menu-item-357 a').hasClass('active')) {
 		jQuery('.callback_box').slideUp();
 		jQuery('#menu-item-357 a').removeClass('active');
@@ -205,7 +205,7 @@ jQuery(document).ready(function() {
 });
 
 
-jQuery('.nav_slide').on('click', function(e) {
+jQuery(document).on("click", ".nav_slide", function(e) {
 	e.preventDefault();
 
 	if (jQuery('.nav_slide').hasClass('active')) {
@@ -230,22 +230,23 @@ jQuery(document).ready(function() {
 
 
 	});
-	jQuery('.slide_up').on('click', function(e) {
+	jQuery(document).on('click', '.slide_up', function(e) {
 		e.preventDefault();
 		jQuery('.contact_box').slideUp();
 		jQuery('.nav_slide').removeClass('active');
 		jQuery('.mean-nav #menu-main-menu').slideUp();
 		jQuery('.mean-bar .meanmenu-reveal').removeClass("meanclose");
-
-
+	});
+	jQuery(document).on("click", '.mean-bar .meanmenu-reveal', function(){
+		jQuery('.nav_slide').removeClass("active");
+		jQuery('.contact_box').slideUp();
 
 	});
-
 	jQuery(".slider_container").each(function() {
 
 		var bgAttr = jQuery('.slider_container .flex-active-slide').attr('databg');
 		jQuery(this).css('background', bgAttr);
-	})
+	});
 
 	var bgAttr = jQuery('.slider_container .flex-active-slide').attr('databg');
 	jQuery(this).css('background', bgAttr);

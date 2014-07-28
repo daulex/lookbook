@@ -336,3 +336,4 @@ function thumbSliderSwitch() {
 		jQuery('#desktop').addClass('slide-thumb');
 	}
 }
+

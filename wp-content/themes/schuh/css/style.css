@@ -180,8 +180,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-div.sirv-spin-button.fullscreen {display:none !important;}
-
 /*COMMON STYLE*/
 *, *:before, *:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 .container{width:100%;margin:0 auto;}
@@ -337,7 +335,7 @@ span.hover{opacity:0;position:absolute;bottom:0px;width:96%;left:5px;bottom:-10p
  .slider_container{position:relative;padding-right:175px;}
  .slide_img img{max-width:100%;height:auto;}
  html .flex-viewport{width:100%;overflow:hidden;}
- .thumb_slider{float:left;max-width:175px;position:absolute;right:0px;top:15%;width:100%; z-index:99999999;}
+ .thumb_slider{float:left;max-width:175px;position:absolute;right:0px;top:15%;width:100%;}
  #control_nav img{/*width:145px;height:125px;*/margin-bottom:10px;}
 /* .thumb_slider{position:relative;}*/
  .center a{text-indent:-9999999px;}

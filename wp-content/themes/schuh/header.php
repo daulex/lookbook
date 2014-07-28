@@ -246,8 +246,8 @@ jQuery().ready(function() {
                     <div class="contact_inside_last">
                        <h2></h2>
                        <ul class="social">
-                          <li><a href="" class="twitter"></a></li>
-                          <li><a href="" class="instagram"></a></li>
+                          <li><a href="http://twitter.com/schuh" class="twitter" target="new"></a></li>
+                          <li><a href="http://instagram.com/schuhshoes" class="instagram" target="new"></a></li>
                       </ul>
                     </div>
                     <a href="" class="slide_up">vcvv</a>
